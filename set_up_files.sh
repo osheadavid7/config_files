@@ -3,7 +3,7 @@
 
 #move old files
 mv ~/.tmux.conf  ~/.tmux.conf_old
-mv ~/.bashrc  ~/.tmux.bashrc
+mv ~/.bashrc  ~/.bashrc_old
 
 
 #create sym link to synced files
