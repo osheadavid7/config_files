@@ -1,0 +1,33 @@
+echo $1
+file=$1
+if [ -e $file ]; then
+	echo "File exists"
+ 	if [ ${file: -4} == ".tex" ];then
+	   noext=${file%\.*}
+	   echo $noext
+     	   latex $file
+	   bibtex $noext
+	   latex $file
+     	   latex $file
+	   dvips -t a4 $noext.dvi
+	   ps2pdf $noext.ps 
+	   ext1=Notes
+	   file1=$noext$ext1
+	   rm $noext.dvi
+	   rm $noext.ps
+	   rm $noext.blg
+	   rm $noext.log
+	   rm $noext.out
+	   rm $noext.bbl
+	   rm $noext.aux
+	   rm $file1.bib
+	   rm null
+	   rm texput.log
+	   okular $noext.pdf
+	else
+	   echo "File not Tex"
+	fi
+else 
+	echo "File does not exists"
+fi
+

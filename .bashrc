@@ -128,7 +128,8 @@ alias medpy='cd /media/david/85c029ce-58ad-4f50-b17f-3b68d8003900/python_scripts
 
 alias matlab='/opt/Matlab-r2009b/bin/matlab' 
 alias chrome='/opt/google/chrome/google-chrome %U' 
-alias ppdf='/home/doshea/Documents/From_simon/pdfscript2'
+alias ppdf='~/config_files/pdfscript2'
+#alias ppdf='/home/doshea/Documents/From_simon/pdfscript2'
 #export TEXINPUTS='.:~/latex:/papers/latex_libs/:'
 #export TEXINPUTS=.:$HOME/papers/latex_libs/
 #.:$HOME/Documents/papers/latex_packages/styles///
