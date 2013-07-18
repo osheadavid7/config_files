@@ -114,8 +114,6 @@ if ! shopt -oq posix; then
 fi
 
 
-alias st_uts='utserver -settingspath /opt/utorrent-server-v3_0/'
-export PYTHONPATH="/home/david/Documents/pyth_dj"
 
 COLOR2="\[\033[1;32m\]"
 COLOR3="\[\033[1;31m\]"
@@ -124,13 +122,18 @@ COLOR5="\[\033[1;34m\]"
 
 PS1="$COLOR2[$COLOR3\u@\W$COLOR2][$COLOR5\h$COLOR2] $COLOR4"
 
-alias medpy='cd /media/david/85c029ce-58ad-4f50-b17f-3b68d8003900/python_scripts/'
+#ALL
+alias ppdf='~/config_files/pdfscript2'
+alias eman='emacs -nw'
+export EDITOR='emacs -nw'
 
+#MSERVER
+alias medpy='cd /media/david/85c029ce-58ad-4f50-b17f-3b68d8003900/python_scripts/'
+alias st_uts='utserver -settingspath /opt/utorrent-server-v3_0/'
+export PYTHONPATH="/home/david/Documents/pyth_dj"
+
+#TYNDALL
 alias matlab='/opt/Matlab-r2009b/bin/matlab' 
 alias chrome='/opt/google/chrome/google-chrome %U' 
-alias ppdf='~/config_files/pdfscript2'
-#alias ppdf='/home/doshea/Documents/From_simon/pdfscript2'
-#export TEXINPUTS='.:~/latex:/papers/latex_libs/:'
-#export TEXINPUTS=.:$HOME/papers/latex_libs/
-#.:$HOME/Documents/papers/latex_packages/styles///
-#:$HOME/papers/latex_libs///
+
+

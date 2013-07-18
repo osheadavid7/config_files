@@ -23,7 +23,7 @@ if [ -e $file ]; then
 	   rm $file1.bib
 	   rm null
 	   rm texput.log
-	   okular $noext.pdf
+#	   okular $noext.pdf
 	else
 	   echo "File not Tex"
 	fi
