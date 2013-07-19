@@ -125,7 +125,9 @@ PS1="$COLOR2[$COLOR3\u@\W$COLOR2][$COLOR5\h$COLOR2] $COLOR4"
 #ALL
 alias ppdf='~/config_files/pdfscript2'
 alias eman='emacs -nw'
+alias gk='gitk --all &'
 export EDITOR='emacs -nw'
+
 
 #MSERVER
 alias medpy='cd /media/david/85c029ce-58ad-4f50-b17f-3b68d8003900/python_scripts/'
