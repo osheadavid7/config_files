@@ -124,9 +124,12 @@ PS1="$COLOR2[$COLOR3\u@\W$COLOR2][$COLOR5\h$COLOR2] $COLOR4"
 
 #ALL
 alias ppdf='~/config_files/pdfscript2'
+alias dpdf='~/config_files/ddfscript2'
 alias eman='emacs -nw'
 alias gk='gitk --all &'
 export EDITOR='emacs -nw'
+
+function lg () { ls -la | grep "$@"; }
 
 
 #MSERVER
@@ -137,5 +140,5 @@ export PYTHONPATH="/home/david/Documents/pyth_dj"
 #TYNDALL
 alias matlab='/opt/Matlab-r2009b/bin/matlab' 
 alias chrome='/opt/google/chrome/google-chrome %U' 
-
+alias Jabref='/home/Docs5/david.oshea/linuxhome/papers/dm_sm_expt/JabRef-2.9.2.jar'
 
