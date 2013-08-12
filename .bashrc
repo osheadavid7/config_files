@@ -131,6 +131,8 @@ export EDITOR='emacs -nw'
 
 function lg () { ls -la | grep "$@"; }
 
+alias gitdel="for x in `git status | grep deleted | awk '{print $3}'`; do git rm $x; done"
+
 
 #MSERVER
 alias medpy='cd /media/david/85c029ce-58ad-4f50-b17f-3b68d8003900/python_scripts/'
