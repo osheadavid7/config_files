@@ -131,16 +131,4 @@ export EDITOR='emacs -nw'
 
 function lg () { ls -la | grep "$@"; }
 
-alias gitdel="for x in `git status | grep deleted | awk '{print $3}'`; do git rm $x; done"
-
-
-#MSERVER
-alias medpy='cd /media/david/85c029ce-58ad-4f50-b17f-3b68d8003900/python_scripts/'
-alias st_uts='utserver -settingspath /opt/utorrent-server-v3_0/'
-export PYTHONPATH="/home/david/Documents/pyth_dj"
-
-#TYNDALL
-alias matlab='/opt/Matlab-r2009b/bin/matlab' 
-alias chrome='/opt/google/chrome/google-chrome %U' 
-alias Jabref='/home/Docs5/david.oshea/linuxhome/papers/dm_sm_expt/JabRef-2.9.2.jar'
-
+source ~/.bash_local
