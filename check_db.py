@@ -1,34 +1,55 @@
+import logging
 import sys
 from subprocess import call
-sys.path.append('./')
+sys.path.append('./') #for dropbox.py and settings.py
+from settings import lnk,ulk,dwd
 import os
 
 #set log file
-LOGFILE="/home/david/clones/config_files/checkdb.log"
+logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p',filename='example.log',level=logging.DEBUG)
 
 
+def check_wd(dwd):
 #check wd
-dwd='/media/david/4ee8607d-eb37-4373-85f1-97e1d8bd0fbb' 
-if os.getcwd()==dwd:
-    pass
-else:
+    if os.getcwd()==dwd:
+        pass
+    else:
     #set wd
-    os.chdir(dwd)
+        os.chdir(dwd)
     
 
-#Set directory to watch
-lnk="Dropbox/Sean n David/For David"       
-ulk="Unsorted"
-#check if dir is up yo date
-status=call(["./dropbox.py","filestatus",lnk])
-#
-if status==0:
+def check_path(lnk,ulk):
+    #check if dir is up yo date
+    status=call(["./dropbox.py","filestatus",lnk])
+    #
+    if status==0:
     #look for folders
-    p,dirs,files=os.walk(lnk).next()
+        logging.info('filestatus == %s (synced)',str(status))
+        p,dirs,files=os.walk(lnk).next()
     #if there are subfolders, move them
-    if len(dirs)!=0:
-        for dr in dirs:
-            call(["mv",lnk+'/'+dr,ulk+'/'+dr])
-else:
+        if len(dirs)!=0:
+            logging.info('Found %s folders',len(dirs))
+            for dr in dirs:
+                logging.info('Moving %s ...',str(dr))
+                call(["mv",lnk+'/'+dr,ulk+'/'+dr])
+        else:
+            logging.info('No folders found')
+        if len(files)!=0:
+            logging.info('Found %s files',len(files))
+            for f in files:
+                logging.info('Moving %s ...',str(f))
+                call(["mv",lnk+'/'+f,ulk+'/'+f])
+        else:
+            logging.info('No files found')
+    else:
     #Not yet synced
+        logging.info('Not yet synced, try again later')
+
+def do_all(lnk,ulk,dwd):
+    check_wd(dwd)
+    check_path(lnk,ulk)
+    
+
         
+if __name__ =='__main__':
+    do_all(lnk,ulk,dwd)
