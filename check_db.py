@@ -66,3 +66,4 @@ def do_all(lnk,ulk,dwd):
         
 if __name__ =='__main__':
     do_all(lnk,ulk,dwd)
+    print 'script has run'
