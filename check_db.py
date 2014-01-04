@@ -16,13 +16,8 @@ REMOTE_DIR = '/media/david/4ee8607d-eb37-4373-85f1-97e1d8bd0fbb/Unsorted2/'
 
 if check_output(['./dropbox.py', "status"]) == "Idle\n":
     log.write(tn()+'Moving files....\n')
-    subprocess.call(['./move_folders.sh'])
-    '''
-    listoffiles=os.listdir(DIR)                                       
-    for f in listoffiles:                                             
-        fullpath=DIR+f                                            
-        subprocess.Popen('mv'+' '+fullpath+' '+REMOTE_DIR,shell=True) 
-    '''
+    subprocess.Popen(['./move_folders.sh'])
+    
 else:
     log.write(tn()+'Not synced....\n')
 
