@@ -123,12 +123,14 @@ COLOR5="\[\033[1;34m\]"
 PS1="$COLOR2[$COLOR3\u@\W$COLOR2][$COLOR5\h$COLOR2] $COLOR4"
 
 #ALL
-alias ppdf='~/config_files/pdfscript2'
-alias dpdf='~/config_files/ddfscript2'
+alias ppdf='~/clones/config_files/pdfscript2'
+alias dpdf='~/clones/config_files/ddfscript2'
 alias eman='emacs -nw'
 alias gk='gitk --all &'
 export EDITOR='emacs -nw'
 
 function lg () { ls -la | grep "$@"; }
 
+
+alias ssh='TERM=xterm ssh'
 source ~/.bash_local

@@ -5,12 +5,12 @@ if [ -e $file ]; then
  	if [ ${file: -4} == ".tex" ];then
 	   noext=${file%\.*}
 	   echo $noext
-     	   latex $file
+     	   pdflatex $file
 	   bibtex $noext
-	   latex $file
-     	   latex $file
-	   dvips -t a4 $noext.dvi
-	   ps2pdf $noext.ps 
+	   pdflatex $file
+     	   pdflatex $file
+	   #dvips -t a4 $noext.dvi
+	   #ps2pdf $noext.ps 
 	   ext1=Notes
 	   file1=$noext$ext1
 	   rm $noext.dvi
@@ -20,10 +20,10 @@ if [ -e $file ]; then
 	   rm $noext.out
 	   rm $noext.bbl
 	   rm $noext.aux
-	   rm $file1.bib
+	   #rm $file1.bib
 	   rm null
 	   rm texput.log
-#	   okular $noext.pdf
+	   okular $noext.pdf
 	else
 	   echo "File not Tex"
 	fi
