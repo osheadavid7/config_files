@@ -12,8 +12,6 @@
                ac-source-semantic))
 
 ;---------------------required packages
-(package-initialize)
-
 (load "auctex.el" nil t t)
 (load "preview-latex.el" nil t t)
 
@@ -22,24 +20,26 @@
 
 ;---------------------add git wip
 (load "~/clones/config_files/git-wip/emacs/git-wip.el")
+(package-initialize)
 
 
-(require 'package)
-(require 'auto-complete)
-(require 'auto-complete-config)
-(require 'auto-complete-auctex)
-
-(ac-config-default)
-(require 'ac-math) 
-
-(setq ac-math-unicode-in-math-p t)
+;For some reason, these have to go here. After loading more packages they get forgotten!!
 (setq TeX-PDF-mode t)
 (setq TeX-view-program-selection
       '((output-pdf "PDF Viewer")))
 (setq TeX-view-program-list
       '(("PDF Viewer" "okular %o")))
-
 (add-hook 'LaTeX-mode-hook 'turn-on-flyspell)
+
+(require 'package)
+(require 'auto-complete)
+(require 'auto-complete-config)
+(require 'auto-complete-auctex)
+(ac-config-default)
+(require 'ac-math) 
+
+(setq ac-math-unicode-in-math-p t)
+
 
 
 (add-to-list 'ac-modes 'latex-mode)   ; make auto-complete aware of `latex-mode`
@@ -49,7 +49,7 @@
          (append '(ac-source-math-unicode ac-source-math-latex ac-source-latex-commands)
                  ac-sources))
    )
-(add-hook 'LaTeX-mode-hook 'ac-LaTeX-mode-setup)
-(global-auto-complete-mode t)
+;(add-hook 'LaTeX-mode-hook 'ac-LaTeX-mode-setup)
+;(global-auto-complete-mode t)
  
 
