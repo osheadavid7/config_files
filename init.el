@@ -12,6 +12,8 @@
                ac-source-semantic))
 
 ;---------------------required packages
+(package-initialize)
+
 (load "auctex.el" nil t t)
 (load "preview-latex.el" nil t t)
 
@@ -23,8 +25,6 @@
 
 
 (require 'package)
-(package-initialize)
-
 (require 'auto-complete)
 (require 'auto-complete-config)
 (require 'auto-complete-auctex)
