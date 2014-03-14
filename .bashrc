@@ -133,4 +133,5 @@ function lg () { ls -la | grep "$@"; }
 
 
 alias ssh='TERM=xterm ssh'
+alias gsu='git status -uno'
 source ~/.bash_local
