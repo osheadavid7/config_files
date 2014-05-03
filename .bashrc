@@ -135,4 +135,8 @@ function lg () { ls -la | grep "$@"; }
 alias ssh='TERM=xterm ssh'
 alias gsu='git status -uno'
 alias ltmux="if tmux has-session -t $USER; then tmux attach -t $USER; else tmux new -s $USER; fi"
+alias sudo='sudo '
 source ~/.bash_local
+
+
+
