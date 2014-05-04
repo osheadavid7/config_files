@@ -57,7 +57,8 @@
    )
 ;(add-hook 'LaTeX-mode-hook 'ac-LaTeX-mode-setup)
 ;(global-auto-complete-mode t)
- 
+
+(setq ispell-dictionary "british") 
 (setq reftex-default-bibliography '("/home/david/clones/latex_bibs/dave.bib"))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
