@@ -136,14 +136,6 @@ function lg () { ls -la | grep "$@"; }
 
 export EDITOR='emacs -nw'
 
-
-<<<<<<< HEAD
-=======
-alias ssh='TERM=xterm ssh'
-alias gsu='git status -uno'
-alias ltmux="if tmux has-session -t $USER; then tmux attach -t $USER; else tmux new -s $USER; fi"
-alias sudo='sudo '
->>>>>>> 953e8c4aca245beb082209621acf262fdaef9db1
 source ~/.bash_local
 
 
