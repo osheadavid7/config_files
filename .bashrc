@@ -136,8 +136,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 function lg () { ls -la | grep "$@"; }
 
 export EDITOR='emacs -nw'
-export LESS='-R'
-export LESSOPEN='|~/.lessfilter %s'
 source ~/.bash_local
 
 
