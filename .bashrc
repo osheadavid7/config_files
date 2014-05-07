@@ -127,7 +127,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias sudo='sudo '
 alias magit='emacs -nw -eval "(progn (magit-status \".\") (delete-other-windows))"'
-
+alias glit='git status | less'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -136,7 +136,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 function lg () { ls -la | grep "$@"; }
 
 export EDITOR='emacs -nw'
-
+export LESS='-R'
+export LESSOPEN='|~/.lessfilter %s'
 source ~/.bash_local
 
 
