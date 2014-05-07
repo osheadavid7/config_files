@@ -40,6 +40,13 @@
 
 (setq ac-math-unicode-in-math-p t)
 
+;Auto complete from Andreas
+(global-set-key "\M-/" (make-hippie-expand-function
+                              '(try-expand-dabbrev-visible
+                                try-expand-dabbrev
+                                try-expand-dabbrev-all-buffers
+                                try-complete-file-name-partially
+                                try-complete-file-name) t))
 
 
 (add-to-list 'ac-modes 'latex-mode)   ; make auto-complete aware of `latex-mode`
@@ -51,5 +58,3 @@
    )
 ;(add-hook 'LaTeX-mode-hook 'ac-LaTeX-mode-setup)
 ;(global-auto-complete-mode t)
- 
-
