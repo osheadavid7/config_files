@@ -49,7 +49,12 @@
          (append '(ac-source-math-unicode ac-source-math-latex ac-source-latex-commands)
                  ac-sources))
    )
-;(add-hook 'LaTeX-mode-hook 'ac-LaTeX-mode-setup)
-;(global-auto-complete-mode t)
- 
+(add-hook 'LaTeX-mode-hook 'ac-LaTeX-mode-setup)
+(global-auto-complete-mode t)
+;;(setq ispell-program-name "/usr/share/emacs/24.3/lisp/textmodes/ispell.el")
+(require 'python)
 
+;; If you use tex-mode
+(require 'tex-mode)`
+(add-hook 'latex-mode-hook 'flyspell-mode)
+(add-hook 'python-mode-hook 'flyspell-prog-mode)
