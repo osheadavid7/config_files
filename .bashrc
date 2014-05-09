@@ -35,19 +35,6 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# set a fancy prompt (non-color, unless we know we "want" color)
-
-#aliases
-alias ls='ls --color=auto'
-alias dir='ls --color=auto --format=vertical'
-alias vdir='ls --color=auto --format=long'
-alias ll='ls -alF --color=auto'
-alias la='ls -A --color=auto'
-alias l='ls -CF --color=auto'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
@@ -67,12 +54,22 @@ alias ppdf='~/clones/config_files/pdfscript2'
 alias dpdf='~/clones/config_files/ddfscript2'
 alias eman='emacs -nw'
 alias gk='gitk --all &'
-export EDITOR='emacs -nw'
-
-function lg () { ls -la | grep "$@"; }
-
 alias ssh='TERM=xterm ssh'
 alias gsu='git status -uno'
 alias ltmux="if tmux has-session -t $USER; then tmux attach -t $USER; else tmux new -s $USER; fi"
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 alias sudo='sudo '
+alias magit='emacs -nw -eval "(progn (magit-status \".\") (delete-other-windows))"'
+alias glit='git status | less'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+
+function lg () { ls -la | grep "$@"; }
+
+export EDITOR='emacs -nw'
 source ~/.bash_local
