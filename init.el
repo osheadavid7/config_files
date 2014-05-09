@@ -44,6 +44,7 @@
 
 (setq reftex-default-bibliography '("/home/david/clones/latex_bibs/dave.bib"))
 
+(add-hook 'LaTeX-mode-hook 'ac-LaTeX-mode-setup)
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)   ; with AUCTeX LaTeX mode
 (add-hook 'LaTeX-mode-hook 'turn-on-flyspell)
 
@@ -56,8 +57,7 @@
 		ac-sources))
   )
 
-;(add-hook 'LaTeX-mode-hook 'ac-LaTeX-mode-setup)
-;(global-auto-complete-mode t)
+
 
 (add-to-list 'ac-modes 'latex-mode)   ; make auto-complete aware of `latex-mode`
 
@@ -70,6 +70,12 @@
                                 try-complete-file-name) t))
 
 
+(require 'python)
+
+;; If you use tex-mode
+(require 'tex-mode)`
+(add-hook 'latex-mode-hook 'flyspell-mode)
+(add-hook 'python-mode-hook 'flyspell-prog-mode)
 
 
 
