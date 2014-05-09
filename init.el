@@ -30,6 +30,7 @@
 (ac-config-default)
 (require 'ac-math) 
 
+(setq ispell-program-name "aspell")
 (setq ispell-dictionary "british") 
 (setq ac-math-unicode-in-math-p t)
 (setq reftex-plug-into-AUCTeX t)
