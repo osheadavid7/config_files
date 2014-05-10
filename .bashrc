@@ -37,9 +37,12 @@ fi
 
 
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
+fi
+
+if [ -f ~/clones/config_files/.git-completion.bash ]; then
+  . ~/clones/config_files/.git-completion.bash
 fi
 
 COLOR2="\[\033[1;32m\]"
