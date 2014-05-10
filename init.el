@@ -35,7 +35,11 @@
 (setq ac-math-unicode-in-math-p t)
 (setq reftex-plug-into-AUCTeX t)
 
-(setq TeX-PDF-mode t)
+;--------------------Set pdflatex options
+(require 'tex)
+(TeX-global-PDF-mode t)
+(setq latex-run-command "pdflatex")
+;;(setq TeX-PDF-mode t)
 (setq TeX-view-program-selection
       '((output-pdf "PDF Viewer")))
 (setq TeX-view-program-list
