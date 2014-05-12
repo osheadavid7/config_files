@@ -3,6 +3,12 @@
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
+;;------------Set search paths
+(let ((default-directory "~/.emacs.d/elpa/"))
+  (normal-top-level-add-subdirs-to-load-path)
+  )
+
+
 (set-default 'ac-sources
              '(ac-source-abbrev
                ac-source-dictionary
