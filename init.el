@@ -17,6 +17,10 @@
                ac-source-words-in-same-mode-buffers
                ac-source-semantic))
 
+
+;---------------------start server
+(server-start)
+
 ;---------------------required packages
 (load "auctex.el" nil t t)
 ;;(load "preview-latex.el" nil t t)

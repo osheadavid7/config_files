@@ -67,12 +67,13 @@ alias sudo='sudo '
 alias magit='emacs -nw -eval "(progn (magit-status \".\") (delete-other-windows))"'
 alias glit='git status | less'
 
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 
 function lg () { ls -la | grep "$@"; }
-
+function emc() { emacsclient "$@" & } 
 export EDITOR='emacs -nw'
 source ~/.bash_local
