@@ -3,6 +3,9 @@
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
+;;------------start server
+(server-start)
+
 ;;------------Set search paths
 (let ((default-directory "~/.emacs.d/elpa/"))
   (normal-top-level-add-subdirs-to-load-path)
@@ -37,7 +40,8 @@
 (require 'ac-math) 
 
 (setq ispell-program-name "aspell")
-(setq ispell-dictionary "british") 
+(setq ispell-dictionary "british")
+(setq ispell-personal-dictionary "~/.ispell-dict-peronal") 
 (setq ac-math-unicode-in-math-p t)
 (setq reftex-plug-into-AUCTeX t)
 
