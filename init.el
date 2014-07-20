@@ -20,9 +20,13 @@
                ac-source-words-in-same-mode-buffers
                ac-source-semantic))
 
+
+;---------------------start server
+(server-start)
+
 ;---------------------required packages
 (load "auctex.el" nil t t)
-(load "preview-latex.el" nil t t)
+;;(load "preview-latex.el" nil t t)
 
 
 ;---------------------add git wip
@@ -57,7 +61,17 @@
 
 
 
-(setq reftex-default-bibliography '("/home/david/clones/latex_bibs/dave.bib"))
+(setq reftex-default-bibliography '("~/clones/references/ref_shared.bib"))
+(defun get-bibtex-keys (file)
+  (with-current-buffer (find-file-noselect file)
+    (mapcar 'car (bibtex-parse-keys))))
+
+(defun LaTeX-add-all-bibitems-from-bibtex ()
+  (interactive)
+  (mapc 'LaTeX-add-bibitems
+        (apply 'append
+               (mapcar 'get-bibtex-keys (reftex-get-bibfile-list)))))
+
 
 (add-hook 'LaTeX-mode-hook 'ac-LaTeX-mode-setup)
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)   ; with AUCTeX LaTeX mode
