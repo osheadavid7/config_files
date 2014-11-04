@@ -45,6 +45,10 @@ if [ -f ~/clones/config_files/.git-completion.bash ]; then
   . ~/clones/config_files/.git-completion.bash
 fi
 
+if [ -f ~/clones/config_files/ssh_completion.bash ]; then
+  . ~/clones/config_files/ssh_completion.bash
+fi
+
 COLOR2="\[\033[1;32m\]"
 COLOR3="\[\033[1;31m\]"
 COLOR4="\[\033[1;30m\]"
@@ -77,3 +81,6 @@ function lg () { ls -la | grep "$@"; }
 function emc() { emacsclient "$@" & } 
 export EDITOR='emacs -nw'
 source ~/.bash_local
+
+
+
