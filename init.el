@@ -6,6 +6,10 @@
 ;;------------start server
 (server-start)
 
+;;enable clipboard
+(setq x-select-enable-clipboard t)
+(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
+
 ;;------------Set search paths
 (let ((default-directory "~/.emacs.d/elpa/"))
   (normal-top-level-add-subdirs-to-load-path)
@@ -20,9 +24,6 @@
                ac-source-words-in-same-mode-buffers
                ac-source-semantic))
 
-
-;---------------------start server
-(server-start)
 
 ;---------------------required packages
 (load "auctex.el" nil t t)
