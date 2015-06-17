@@ -44,11 +44,30 @@
 (ac-config-default)
 (require 'ac-math) 
 
+;Auto complete from Andreas
+(global-set-key "\M-/" (make-hippie-expand-function
+                              '(try-expand-dabbrev-visible
+                                try-expand-dabbrev
+                                try-expand-dabbrev-all-buffers
+                                try-complete-file-name-partially
+                                try-complete-file-name) t))
+
+
 (setq ispell-program-name "aspell")
 (setq ispell-dictionary "british")
 (setq ispell-personal-dictionary "~/.ispell-dict-peronal") 
 (setq ac-math-unicode-in-math-p t)
 (setq reftex-plug-into-AUCTeX t)
+
+
+
+
+
+(add-hook 'LaTeX-mode-hook 'ac-LaTeX-mode-setup)
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)   ; with AUCTeX LaTeX mode
+(add-hook 'LaTeX-mode-hook 'turn-on-flyspell)
+
+(add-hook 'latex-mode-hook 'turn-on-reftex)   ; with Emacs latex mode
 
 ;--------------------Set pdflatex options
 (require 'tex)
@@ -59,7 +78,10 @@
       '((output-pdf "PDF Viewer")))
 (setq TeX-view-program-list
       '(("PDF Viewer" "okular %o")))
-
+(eval-after-load "tex"
+  '(add-to-list 'TeX-command-list
+		'("XeLaTeX" "xelatex -interaction=nonstopmode %s"
+		    TeX-run-command t t :help "Run xelatex") t))
 
 
 (setq reftex-default-bibliography '("~/clones/references/ref_shared.bib"))
@@ -74,11 +96,6 @@
                (mapcar 'get-bibtex-keys (reftex-get-bibfile-list)))))
 
 
-(add-hook 'LaTeX-mode-hook 'ac-LaTeX-mode-setup)
-(add-hook 'LaTeX-mode-hook 'turn-on-reftex)   ; with AUCTeX LaTeX mode
-(add-hook 'LaTeX-mode-hook 'turn-on-flyspell)
-
-(add-hook 'latex-mode-hook 'turn-on-reftex)   ; with Emacs latex mode
 
 
 (defun ac-LaTeX-mode-setup () ; add ac-sources to default ac-sources
@@ -91,13 +108,6 @@
 
 (add-to-list 'ac-modes 'latex-mode)   ; make auto-complete aware of `latex-mode`
 
-;Auto complete from Andreas
-(global-set-key "\M-/" (make-hippie-expand-function
-                              '(try-expand-dabbrev-visible
-                                try-expand-dabbrev
-                                try-expand-dabbrev-all-buffers
-                                try-complete-file-name-partially
-                                try-complete-file-name) t))
 
 
 (require 'python)
@@ -121,3 +131,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; android-mode
+(add-to-list 'load-path "~/Programs/opt/android-mode")
+(require 'android-mode)
+(custom-set-variables '(android-mode-sdk-dir "~/Programs/opt/android-sdk-linux"))
+;;(defcustom android-mode-sdk-dir "/home/david/Programs/opt/android-sdk-linux/")
+;;(defcustom android-mode-sdk-dir "~/Programs/opt/android-sdk-linux"  :type 'string
+;;  :group 'android-mod)

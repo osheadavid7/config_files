@@ -50,12 +50,15 @@ if [ -f ~/clones/config_files/ssh_completion.bash ]; then
 fi
 
 # enable bash completion in interactive shells
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
+# if ! shopt -oq posix; then
+#   if [ -f /usr/share/bash-completion/bash_completion ]; then
+#     . /usr/share/bash-completion/bash_completion
+#   elif [ -f /etc/bash_completion ]; then
+#     . /etc/bash_completion
+#   fi
+# fi
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
-  fi
 fi
 
 COLOR2="\[\033[1;32m\]"
@@ -86,8 +89,19 @@ alias glit='git status | less'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 
+#functions
 function lg () { ls -la | grep "$@"; }
-function emc() { emacsclient "$@" & } 
+function emc() { emacsclient "$@" & }
+function ncites() {
+    if [ -z "$1" ]
+    then
+	variable=$(ls -a | grep blg)
+    else
+	variable=$1
+    fi
+    echo $variable
+    grep -P "You've used [0-9]+ entries," -m 1 "$variable" | grep -P "[0-9]+" -o;
+}
 export EDITOR='emacs -nw'
 source ~/.bash_local
 
